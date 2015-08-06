@@ -2,7 +2,7 @@ Dexter Industries NXT Sensors
 =====
 ![logo DI](https://github.com/DexterInd/EV3_Dexter_Industries_Sensors/raw/master/Dev%20Tools/DILogo-125.jpg "Dexter Industries Logo")
 
-This project contains the EV3 blocks for Dexter Industries Sensors.
+This project contains the NXT blocks for Dexter Industries Sensors.
 
 These files have been made available online through a [Creative Commons Attribution-ShareAlike 3.0](http://creativecommons.org/licenses/by-sa/3.0/) license.
 
