@@ -1,0 +1,73 @@
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+/////  dPressure - Take Pressure
+/////
+/////  This is an example program by Dexter Industries.
+/////  http://www.dexterindustries.com
+/////  This program is based off of work by John Hansen.
+/////  http://bricxcc.sourceforge.net/
+/////
+/////  This program provides an example for reading the dPressure 250 and
+/////  dPressure 500 on sensor ports 1 and 2 respectively.
+/////
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+#define RawValueField   2
+#define SENSOR_MODE_RAW   IN_MODE_RAW
+#define SENSOR_TYPE_TOUCH   IN_TYPE_SWITCH
+
+long read_250(byte port){
+  float Vout = 0.0;                       // Voltage reading out of A/D Converter
+  float Vs = 4.85;                        // We assume Vs is 4.85 on the NXT.  For
+                                          // More accurate results, this can be measured
+                                          // with a multimeter and changed.
+  float pressure = 0;                     // Pressure of the sensor
+  int val = val = SensorValueRaw(port);
+
+  // Pressure is calculated using Vout = VS x (0.0018 x P + 0.04)
+  // => P
+  // Where Vs is assumed to be equal to around 4.85 on the NXT
+  // Calculate Vout
+  Vout = ((val * Vs) / 1023);
+
+  pressure = ((Vout / Vs) - 0.04) / 0.00369;   // Final pressure value.
+  return pressure;
+}
+
+long read_500(byte port){
+  float Vout = 0.0;                       // Voltage reading out of A/D Converter
+  float Vs = 4.85;                        // We assume Vs is 4.85 on the NXT.  For
+                                          // More accurate results, this can be measured
+                                          // with a multimeter and changed.
+  float pressure = 0;                     // Final pressure value we return.
+  
+  int val = val = SensorValueRaw(port);     // Read the a/d converter.
+
+  // Pressure is calculated using Vout = VS x (0.0018 x P + 0.04)
+  // => P
+  // Where Vs is assumed to be equal to around 4.85 on the NXT
+  // Calculate Vout
+  Vout = ((val * Vs) / 1023);                  // Convert from 10-bit value to voltage.
+  pressure = ((Vout / Vs) - 0.04) / 0.0018;    // Final pressure value.
+  return pressure;
+}
+
+task main()
+{
+
+  SetSensorType(S1, SENSOR_TYPE_TOUCH);      // Absolutely necessary.
+  SetSensorMode	(S1, IN_MODE_RAW);           // Absolutely necessary.
+
+  SetSensorType(S2, SENSOR_TYPE_TOUCH);      // Absolutely necessary.
+  SetSensorMode	(S2, IN_MODE_RAW);           // Absolutely necessary.
+
+  while (true)
+  {
+    TextOut(0, LCD_LINE1, "S1:");
+    TextOut(0, LCD_LINE2, "S2:");
+    NumOut(20, LCD_LINE1, read_250(S1));      // Read the 250 on Sensor Port 1.
+    NumOut(20, LCD_LINE2, read_500(S2));      // Read the 500 on Sensor Port 2.
+    Wait(500);
+    ClearScreen();
+  }
+}
