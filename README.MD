@@ -8,10 +8,10 @@ These files have been made available online through a [Creative Commons Attribut
 
 
 ## Participate!
-Send us [feedback](http://www.dexterindustries.com/contact.html) or hack away at this repo!  It's all open-source software, and we'd be honored if you joined in!
+Send us [feedback](http://www.dexterindustries.com/contact) or contribute to this repo!  It's all open-source software, and we'd be honored if you joined in!
 
 ## More Links
 
 [Dexter Industries] (http://www.dexterindustries.com/)
 
-[Our Products] (http://www.dexterindustries.com/products.html)
+[Our Products] (http://www.dexterindustries.com/shop)
