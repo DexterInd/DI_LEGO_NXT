@@ -14,4 +14,4 @@ Send us [feedback](http://www.dexterindustries.com/contact) or contribute to thi
 
 [Dexter Industries](http://www.dexterindustries.com/)
 
-[Our Products](http://www.dexterindustries.com/shop)
+[Our Products](https://shop.dexterindustries.com/shop/)
